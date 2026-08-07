@@ -1,89 +1,77 @@
-# Research rail v0.1
+# Public research rail v0.2
 
-Purpose: let a researcher point an agent at this cache and continue the work without confusing internal validation, public evidence, and hypotheses.
+Purpose: provide a searchable anchor for another researcher or agent without asking them to trust a narrative summary.
 
-## Access boundary
+## Boundary
 
-This is a private cache. The following are forbidden without explicit approval:
+This repository contains only public-safe artifacts and our own work:
 
-- publishing cache files or excerpts;
-- copying unpublished notes into public issues, posts, or pull requests;
-- sending messages to Matthew Wright, @enuminous, or any third party;
-- adding credentials, private conversations, personal data, or secrets;
-- treating repository access as permission to change the public review repository;
-- changing a claim from conditional/not-established to supported without a new receipt.
+- our code and tests;
+- our measured outputs;
+- our analytical classifications;
+- public source URLs used as context;
+- explicit proposals for future tests.
 
-Private means access-controlled, not magically verified. Every claim still needs an evidence class.
+It does not contain private conversations, credentials, personal data, hidden archives, or unpublished source material. Repository access is not permission to speak for us, alter external systems, contact the original author, or publish new claims under our name.
 
 ## Evidence classes
 
-- `source_observation`: directly observed in a public source; cite URL and retrieval context.
-- `our_reproduction`: independently implemented/run by us; include command, result, and artifact path.
-- `author_report`: reported by the author but not independently reproduced.
-- `inference`: our interpretation from sources or runs; never present as direct observation.
+- `our_reproduction`: independently implemented and run by us; command and result are recorded.
+- `our_analysis`: our interpretation or mathematical audit, with the source and reasoning boundary exposed.
 - `proposal`: a test design, not a result.
+
+A public source link is provenance. It is not evidence that our claim is true.
 
 ## Claim states
 
 - `supported`: the narrow statement survived the stated validation.
-- `conditional`: mathematically or operationally valid only under explicit assumptions.
-- `not_established`: evidence inspected but does not establish the broader claim.
-- `blocked`: the proposed test could not run because a prerequisite was missing.
-- `unresolved`: insufficient evidence; do not fill the gap with confidence.
+- `conditional`: valid only under explicit assumptions or scope.
+- `not_established`: our review does not establish the broader claim.
+- `blocked`: a proposed test could not run because a prerequisite was missing.
+- `unresolved`: evidence is insufficient; do not fill the gap with confidence.
+- `proposal`: a falsifiable next experiment, not an outcome.
 
 ## Agent workflow
 
-### Read
+1. Read `README.md`, this file, and `data/claims.jsonl`.
+2. Search claims by `claim_id`, `mechanism`, and `status`.
+3. Follow every evidence pointer before summarizing.
+4. Separate `receipt.promise` from `receipt.result`.
+5. State the narrow claim, assumptions, baseline, and falsifier.
+6. Re-run executable artifacts before calling a result reproduced.
+7. Use public-safe derivatives when adding work.
+8. Make one bounded contribution at a time through a normal pull request.
 
-1. Load `README.md`, this file, and `data/claims.jsonl`.
-2. Search by `claim_id`, `mechanism`, or `status`.
-3. Read every `evidence` pointer attached to a candidate claim.
-4. Check `receipt.promise`, `receipt.result`, and `falsifier` separately.
-
-### Analyze
-
-1. State the narrow claim, not the attractive generalization.
-2. Name the assumptions doing the work.
-3. Compare against a boring baseline.
-4. Identify the observation that would falsify the claim.
-5. If the result depends on a toy choice, mark it as toy evidence.
-
-### Contribute
-
-Contributions must be append-only JSONL records or new files. Each new record requires:
-
-- stable `claim_id`;
-- one-sentence claim;
-- evidence class and state;
-- source or artifact pointer;
-- exact command or protocol when executable;
-- promise/result receipt;
-- falsifier;
-- author/agent and timestamp;
-- privacy classification.
-
-Run:
+Run the local checks:
 
 ```bash
 python3 scripts/validate_cache.py
 python3 -m unittest discover -s tests -v
 ```
 
-A passing validator proves schema and receipt consistency only. It does not prove the research claim. The universe remains disappointingly outside the unit test.
+A passing validator proves schema consistency, not the research conclusion. The universe remains outside the unit test, which is probably for the best.
+
+## Contribution schema
+
+New claim records must include:
+
+- stable `claim_id`;
+- one-sentence claim;
+- `our_reproduction`, `our_analysis`, or `proposal` evidence class;
+- claim status;
+- public evidence pointers;
+- exact command/protocol where executable;
+- promise/result receipt;
+- falsifier;
+- actor and date;
+- `public-safe` privacy label.
+
+Do not overwrite a closed receipt. Append a correction or superseding receipt.
 
 ## Promotion rule
 
-A claim may move from `proposal` to `conditional` only when its assumptions and executable test are explicit. It may move to `supported` only after an independent run produces a receipt and the stated falsifier was not triggered within the tested scope. Broad physical or consciousness claims remain `not_established` until they have discriminating evidence against credible alternatives.
+A claim may move from `proposal` to `conditional` only when its assumptions and test are explicit. It may move to `supported` only after an executable or auditable result is recorded. Broad physical, consciousness, and universal claims require discriminating evidence against credible alternatives; internal coherence is not enough.
 
-## Public-release rail
+## External-action rule
 
-To move material from this cache into the public review repository:
-
-1. Create a public-safe derivative file.
-2. Remove unpublished synthesis and private provenance.
-3. Preserve exact source URLs and evidence class.
-4. Run the privacy scan and validator.
-5. Obtain explicit operator approval for the external write.
-6. Push one commit and read back the public tree.
-
-No automatic sync. No surprise leaks. No “it was only a cache” autopsy.
+The rail supports research, not autonomous publication. No agent may contact the original author, open issues elsewhere, post socially, deploy code, spend money, or modify another repository without explicit approval for that exact action.

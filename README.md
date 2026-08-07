@@ -1,54 +1,45 @@
-# EFMW research cache
+# EFMW evidence projection
 
-Private working cache for independent research on the EFMW framework by Matthew C. Wright / @enuminous.
+A public, evidence-first cache of our own work that intersects the public EFMW research program of Matthew C. Wright / @enuminous.
 
-Source trail:
+This is not a mirror of the author’s corpus and not an endorsement. It is a projection of our previous searches, reproductions, audits, and proposed falsifiers into a form that another researcher or agent can quickly search and validate.
+
+Context sources:
 
 - X thread: https://x.com/enuminous/status/2085498481670779122
 - Publication: https://enuminous.substack.com/
-- Public review repository: https://github.com/leo-guinan/efmw-equation-review
+- Equation review: https://github.com/leo-guinan/efmw-equation-review
 
-This repository is intentionally private because it contains unpublished synthesis, internal validation receipts, and research coordination metadata. It is not a truth oracle. A private cache can protect unpublished work; it cannot turn a conditional result into a fact. The epistemic status of every item is explicit.
+## What is in this repository
 
-## Research rail
+- `RAIL.md`: public researcher/agent operating protocol.
+- `data/claims.jsonl`: claims made from our own work, each with evidence, status, receipt, and falsifier.
+- `data/source_index.jsonl`: public sources used as context, not as substitutes for our results.
+- `scripts/validate_cache.py`: dependency-free schema validator.
+- `tests/test_cache.py`: local tests for the evidence rail.
 
-An agent entering this repository must:
-
-1. Read `RAIL.md` before interpreting any claim.
-2. Search `data/claims.jsonl` by claim ID, mechanism, and status.
-3. Follow every evidence pointer before summarizing.
-4. Preserve the distinction between `supported`, `conditional`, `not_established`, `blocked`, and `unresolved`.
-5. Treat `result` as a receipt of what was actually run, not as a restatement of the promise.
-6. Never publish private cache contents, quote unpublished synthesis, or contact the originator without explicit operator approval.
-7. Add new work by append-only evidence receipts and a falsifier. Do not overwrite a closed receipt.
-8. Before claiming an improvement, run the validator and cite the exact commit and test output.
-
-## Current contents
-
-- `RAIL.md`: agent operating boundary and contribution protocol.
-- `data/claims.jsonl`: machine-searchable claims and evidence receipts.
-- `data/source_index.jsonl`: public source index and coverage facts.
-- `scripts/validate_cache.py`: dependency-free schema and consistency validator.
-- `tests/test_cache.py`: local tests for the rail.
-
-## Current evidence boundary
+## Evidence boundary
 
 Supported by our own execution:
 
-- the 102-image inventory is complete;
-- the visible `888 = 23 × 38 + 14` arithmetic relation is correct;
-- the public Substack archive/sitemap contains 707 matching post URLs in the captured snapshot;
-- the linear observer/controller mechanism described in the formalism stabilizes the chosen unstable toy system under explicit gains.
+- the preserved equation-image inventory covers items 1–102;
+- the visible `888 = 23 × 38 + 14` relation is arithmetically correct;
+- the public Substack archive and sitemap matched at 707 URLs in our captured snapshot;
+- the linear observer/controller mechanism stabilizes our explicitly chosen unstable toy system under explicit gains.
 
-Conditional:
+Conditional or interpretive:
 
-- the control-theoretic mechanism may be useful as an EFMW engineering core;
-- the bounded recovery-margin/collapse argument is valid under its stated dynamical assumptions;
-- the proposed model-wrapper and lead-time tests are suitable preregistration hypotheses.
+- the control-theoretic mechanism may be a useful engineering anchor for EFMW-inspired monitoring;
+- the public physical derivation requires additional tensor, unit, action, and conservation work;
+- the next useful experiments are blinded baseline comparisons and ablations.
 
-Not established:
+Not established by our work:
 
 - a new informational stress tensor or universal physical field;
 - retrocausal physics, cognitive electromagnetic waves, cosmological modifications, consciousness from recursion, or measured model-performance gains.
 
-The public review repository contains the reproducible public-facing implementation. This private cache contains the structured claim ledger and the rail for future agent work.
+## For a researcher’s agent
+
+Point the agent at this repository and instruct it to read `RAIL.md` first, then search `data/claims.jsonl`. The agent should follow evidence pointers, preserve claim status, reproduce executable receipts, and propose one falsifier-driven next step at a time.
+
+The repository is public-safe. No private conversations, credentials, raw personal data, or unpublished cache material are included.

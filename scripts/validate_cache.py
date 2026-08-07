@@ -7,7 +7,7 @@ ROOT = Path(__file__).resolve().parents[1]
 CLAIMS = ROOT / 'data' / 'claims.jsonl'
 SOURCES = ROOT / 'data' / 'source_index.jsonl'
 ALLOWED_STATUS = {'supported','conditional','not_established','blocked','unresolved','proposal'}
-ALLOWED_CLASSES = {'source_observation','our_reproduction','author_report','inference','proposal'}
+ALLOWED_CLASSES = {'our_reproduction','our_analysis','proposal'}
 REQUIRED = {'claim_id','claim','status','evidence_class','evidence','receipt','falsifier','privacy','actor','created_at'}
 
 
@@ -29,7 +29,7 @@ def validate():
         assert c['receipt']['promise']
         assert 'result' in c['receipt']
         assert c['falsifier']
-        assert c['privacy'] in {'public-safe','internal-synthesis'}
+        assert c['privacy'] == 'public-safe'
         if c['status'] == 'supported':
             assert c['receipt']['result'] not in (None, '')
     for s in sources:
